@@ -1,0 +1,212 @@
+## Raw Triples
+<https://www.huwdiprose.co.uk/books/life_on_earth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "Audiobook" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/name> "Life on Earth" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/readBy> "David Attenborough" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/author> "David Attenborough" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/publisher> "HarperCollins Publishers Limited" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/datePublished> "2020-12-23" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/abridged> "false" .
+
+# ==============================
+## Refactor 1: RDF Type as prefix
+# ===============================
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+## Initial Triples
+
+<https://www.huwdiprose.co.uk/books/life_on_earth> rdf:type "Audiobook" .
+
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/name> "Life on Earth" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/readBy> "David Attenborough" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/author> "David Attenborough" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/publisher> "HarperCollins Publishers Limited" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/datePublished> "2020-12-23" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/abridged> "false" .
+
+# ===========================
+## Refactor 2: Curry Subject
+# ===========================
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+
+books:life_on_earth rdf:type "Audiobook" .
+
+books:life_on_earth <https://www.huwdiprose.co.uk/book/name> "Life on Earth" .
+books:life_on_earth <https://www.huwdiprose.co.uk/book/readBy> "David Attenborough" .
+books:life_on_earth <https://www.huwdiprose.co.uk/book/author> "David Attenborough" .
+books:life_on_earth <https://www.huwdiprose.co.uk/book/publisher> "HarperCollins Publishers Limited" .
+books:life_on_earth <https://www.huwdiprose.co.uk/book/datePublished> "2020-12-23" .
+books:life_on_earth <https://www.huwdiprose.co.uk/book/abridged> "false" .
+
+# Questions
+# Is this the best way to start?
+# Have also seen syntax <#life_on_earth>, I guess making this a fragment within this doc that's searchable
+# So if this was hosted on the books prefix would be https://www.huwdiprose.co.uk/books#life_on_earth
+
+# =============================
+## Refactor 3: Curry Predicate
+# ============================
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix book: <https://www.huwdiprose.co.uk/book/> .
+
+books:life_on_earth rdf:type "Audiobook" .
+
+books:life_on_earth book:name "Life on Earth" .
+books:life_on_earth book:readBy "David Attenborough" .
+books:life_on_earth book:author "David Attenborough" .
+books:life_on_earth book:publisher "HarperCollins Publishers Limited" .
+books:life_on_earth book:datePublished "2020-12-23" .
+books:life_on_earth book:abridged "false" .
+
+# =====================
+## Refactor 4 rdf:type
+# =====================
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix book: <https://www.huwdiprose.co.uk/book/> .
+
+books:life_on_earth a "Audiobook" .
+
+books:life_on_earth book:name "Life on Earth" .
+books:life_on_earth book:readBy "David Attenborough" .
+books:life_on_earth book:author "David Attenborough" .
+books:life_on_earth book:publisher "HarperCollins Publishers Limited" .
+books:life_on_earth book:datePublished "2020-12-23" .
+books:life_on_earth book:abridged "false" .
+
+# ============================
+## Refactor 5 grouping subject
+# ============================
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix book: <https://www.huwdiprose.co.uk/book/> .
+
+books:life_on_earth a "Audiobook" ;
+ book:name "Life on Earth" ;
+ book:readBy "David Attenborough" ;
+ book:author "David Attenborough" ;
+ book:publisher "HarperCollins Publishers Limited" ;
+ book:datePublished "2020-12-23" ;
+ book:abridged "false" .
+
+# ========================
+## Refactor 6 Schema class
+# ========================
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix book: <https://www.huwdiprose.co.uk/book/> .
+@prefix schema: <https://schema.org> .
+
+books:life_on_earth a schema:Audiobook ;
+ book:name "Life on Earth" ;
+ book:readBy "David Attenborough" ;
+ book:author "David Attenborough" ;
+ book:publisher "HarperCollins Publishers Limited" ;
+ book:datePublished "2020-12-23" ;
+ book:abridged "false" .
+
+# Questions: 	a bibo:Book ? Is that better? How do I choose?
+# Or both? why not?
+
+# =============================
+## Refactor 7 Schema predicates
+# =============================
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix schema: <https://schema.org> .
+
+books:life_on_earth a schema:Audiobook ;
+ schema:name "Life on Earth" ;
+ schema:readBy "David Attenborough" ;
+ schema:author "David Attenborough" ;
+ schema:publisher "HarperCollins Publishers Limited" ;
+ schema:datePublished "2020-12-23" ;
+ schema:abridged "false" .
+
+# ==============================
+## Refactor 7 Schema Link Author
+# ==============================
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix people: <https://www.huwdiprose.co.uk/people> .
+
+people:davidAttenborough a foaf:Person ;
+  foaf:name "David Attenborough" .
+
+books:life_on_earth a schema:Audiobook ;
+ schema:name "Life on Earth" ;
+ schema:readBy people:davidAttenborough ;
+ schema:author people:davidAttenborough ;
+ schema:publisher "HarperCollins Publishers Limited" ;
+ schema:datePublished "2020-12-23" ;
+ schema:abridged "false" .
+
+# Questions
+# I don't think Dave has a foaf card on his site...
+# But it's not linked data from here? There's https://www.wikidata.org/wiki/Q183337
+# How might I work that in?
+
+# =================================
+## Refactor 8 Schema Link Publisher
+# =================================
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix people: <https://www.huwdiprose.co.uk/people> .
+@prefix publishers: <https://www.huwdiprose.co.uk/publishers> .
+
+people:davidAttenborough a foaf:Person ;
+  foaf:name "David Attenborough" .
+
+publishers:harperCollins a foaf:Agent ;
+  foaf:name "HarperCollins Publishers Limited" .
+
+books:life_on_earth a schema:Audiobook ;
+ schema:name "Life on Earth" ;
+ schema:readBy people:davidAttenborough ;
+ schema:author people:davidAttenborough ;
+ schema:publisher  publishers:harperCollins;
+ schema:datePublished "2020-12-23" ;
+ schema:abridged "false" .
+
+# Questions
+# How do I work in https://www.wikidata.org/wiki/Q95149?
+
+# =====================
+## Refactor 9 Language
+# =====================
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix books: <https://www.huwdiprose.co.uk/books/> .
+@prefix people: <https://www.huwdiprose.co.uk/people> .
+@prefix publishers: <https://www.huwdiprose.co.uk/publishers> .
+
+people:davidAttenborough a foaf:Person ;
+  foaf:name "David Attenborough"@en .
+
+publishers:harperCollins a foaf:Agent ;
+  foaf:name "HarperCollins Publishers Limited"@en .
+
+books:life_on_earth a schema:Audiobook ;
+ schema:name "Life on Earth"@en ;
+ schema:readBy people:davidAttenborough ;
+ schema:author people:davidAttenborough ;
+ schema:publisher  publishers:harperCollins;
+ schema:datePublished "2020-12-23" ;
+ schema:abridged "false" .
+
+# Questions
+# How do I work in https://www.wikidata.org/wiki/Q95149?
