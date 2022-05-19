@@ -1,5 +1,5 @@
 ## Raw Triples
-<https://www.huwdiprose.co.uk/books/life_on_earth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "Audiobook" .
+<https://www.huwdiprose.co.uk/books/life_on_earth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> "Audiobook" .
 <https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/name> "Life on Earth" .
 <https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/readBy> "David Attenborough" .
 <https://www.huwdiprose.co.uk/books/life_on_earth> <https://www.huwdiprose.co.uk/book/author> "David Attenborough" .
@@ -11,7 +11,7 @@
 ## Refactor 1: RDF Type as prefix
 # ===============================
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 ## Initial Triples
 
 <https://www.huwdiprose.co.uk/books/life_on_earth> rdf:type "Audiobook" .
@@ -26,7 +26,7 @@
 # ===========================
 ## Refactor 2: Curry Subject
 # ===========================
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix books: <https://www.huwdiprose.co.uk/books/> .
 
 books:life_on_earth rdf:type "Audiobook" .
@@ -47,7 +47,7 @@ books:life_on_earth <https://www.huwdiprose.co.uk/book/abridged> "false" .
 ## Refactor 3: Curry Predicate
 # ============================
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix books: <https://www.huwdiprose.co.uk/books/> .
 @prefix book: <https://www.huwdiprose.co.uk/book/> .
 
@@ -64,7 +64,7 @@ books:life_on_earth book:abridged "false" .
 ## Refactor 4 rdf:type
 # =====================
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix books: <https://www.huwdiprose.co.uk/books/> .
 @prefix book: <https://www.huwdiprose.co.uk/book/> .
 
@@ -81,7 +81,7 @@ books:life_on_earth book:abridged "false" .
 ## Refactor 5 grouping subject
 # ============================
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix books: <https://www.huwdiprose.co.uk/books/> .
 @prefix book: <https://www.huwdiprose.co.uk/book/> .
 
@@ -97,7 +97,7 @@ books:life_on_earth a "Audiobook" ;
 ## Refactor 6 Schema class
 # ========================
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix books: <https://www.huwdiprose.co.uk/books/> .
 @prefix book: <https://www.huwdiprose.co.uk/book/> .
 @prefix schema: <https://schema.org> .
@@ -117,7 +117,7 @@ books:life_on_earth a schema:Audiobook ;
 ## Refactor 7 Schema predicates
 # =============================
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix books: <https://www.huwdiprose.co.uk/books/> .
 @prefix schema: <https://schema.org> .
 
@@ -132,7 +132,7 @@ books:life_on_earth a schema:Audiobook ;
 # ==============================
 ## Refactor 7 Schema Link Author
 # ==============================
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix schema: <https://schema.org> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
@@ -158,7 +158,7 @@ books:life_on_earth a schema:Audiobook ;
 # =================================
 ## Refactor 8 Schema Link Publisher
 # =================================
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix schema: <https://schema.org> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
@@ -186,7 +186,7 @@ books:life_on_earth a schema:Audiobook ;
 # =====================
 ## Refactor 9 Language
 # =====================
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
 @prefix schema: <https://schema.org> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
